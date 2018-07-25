@@ -13,6 +13,8 @@ from optparse import OptionParser
 
 from subprocess import Popen,PIPE
 
+dir_of_prog = os.path.dirname(os.path.abspath(__file__))
+
 def scoreArrayAug(scoreA,index,f):
   if(len(scoreA) == 1):
     return [0]
@@ -83,7 +85,7 @@ def fastaErrase(outFile,name):
               print ("Failed to errase : " + outFile)
               exit(1)
 
-  psFile = "./"+name[:42]+"_ss.ps"
+  psFile = dir_of_prog+name[:42]+"_ss.ps"
   if os.path.exists(psFile):
       try:  
               os.remove(psFile)
@@ -145,6 +147,9 @@ filesFilter = "ETERNA_R"
 
 keyWord = "qsub_pycharm1_"
 
+collectionName = "collectionName_stat"
+dbName = "dbName"
+
 if(prediction):
   pred_str = "_Pred_db-"+dbName+"-col-"+collectionName
 else:
@@ -163,7 +168,7 @@ if(options.verbose):
 
 # fichier qui monitor certain parametre
 
-f_rdat_associated_with_hi_stn = open("./meta_info/Hi_stn.txt","a")
+f_rdat_associated_with_hi_stn = open(dir_of_prog+"meta_info/Hi_stn.txt","a")
 
 
 
@@ -174,7 +179,7 @@ f.close()
 folders = r.split("\n")
 '''
 
-fa_adList_folder = "/u/malricp/DatasetXmethods/Dataset_1m7/"
+fa_adList_folder = dir_of_prog+"Dataset_1m7/"
 
 '''
 lineId = int(sys.argv[1])
@@ -216,7 +221,7 @@ for file in onlyfiles :
                 print("seqTab len : "+str(len(rdat.seqTab)))
               for i in range(0,len(rdat.seqTab)):
                 seq = rdat.seqTab[i]
-                (ed,freqMfe) = rnaFold("fasta_for_RNA_fold/",root+"_"+str(i)+id_unique,seq)
+                (ed,freqMfe) = rnaFold(dir_of_prog+"fasta_for_RNA_fold/",root+"_"+str(i)+id_unique,seq)
                 v = value.data[i].values
                 v_avg = statistics.mean(v)
                 e = value.data[i].errors
@@ -266,8 +271,7 @@ for file in onlyfiles :
       if(len(linesParsed)>0):
         
         nbNt_Ncm = 10
-        collectionName = "collectionName_stat"
-        dbName = "dbName"
+
 
         filePath = "Dataset_1m7/"+id_unique+"/"
         if(options.verbose):
@@ -332,7 +336,7 @@ if(options.verbose):
 collection = id_unique
 
 
-publicFolder = "Dataset_1m7/"+id_unique
+publicFolder = dir_of_prog+"Dataset_1m7/"+id_unique
 
 pathTab = []
 pathTab.append({"name":"so_detail_mfe","path":["ncmTabDG_so"],"soft":"so"})
