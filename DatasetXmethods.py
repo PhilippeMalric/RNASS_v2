@@ -98,7 +98,6 @@ def fastaErrase(outFile,name):
 
   #print ">> Done!"
 def rnaFold(filePath,name,seq):
-    #test
     os.chdir(filePath)
     fastaP = name+".fa"
     #print ("fastaP = "+fastaP)
@@ -276,7 +275,7 @@ for file in onlyfiles :
         nbNt_Ncm = 10
 
 
-        filePath = "Dataset_1m7/"+id_unique+"/"
+        filePath = dir_of_prog+"Dataset_1m7/"+id_unique+"/"
         if(options.verbose):
           print("filePath : "+filePath)
         if (not os.path.exists(filePath)):
