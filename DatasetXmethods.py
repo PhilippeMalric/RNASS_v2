@@ -101,7 +101,7 @@ def rnaFold(filePath,name,seq):
     fastaP = filePath + name+".fa"
     #print ("fastaP = "+fastaP)
     fastaWrite(fastaP,seq,name)
-    stri = "RNAfold < \""+fastaP+"\" −noPS "
+    stri = "RNAfold < \""+fastaP+"\" −noPS -p "
     print (stri)
     Process=Popen([stri],shell=True,stdout=PIPE,stderr=PIPE)
     output,err =  Process.communicate()
