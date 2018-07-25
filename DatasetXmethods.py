@@ -13,7 +13,7 @@ from optparse import OptionParser
 
 from subprocess import Popen,PIPE
 
-dir_of_prog = os.path.dirname(os.path.abspath(__file__))
+dir_of_prog = os.path.dirname(os.path.abspath(__file__)) +"/"
 
 def scoreArrayAug(scoreA,index,f):
   if(len(scoreA) == 1):
