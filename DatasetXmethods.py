@@ -83,7 +83,7 @@ def fastaErrase(outFile,name):
               print ("Failed to errase : " + outFile)
               exit(1)
 
-  psFile = "/u/malricp/DatasetXmethods/"+name[:42]+"_ss.ps"              
+  psFile = "./"+name[:42]+"_ss.ps"
   if os.path.exists(psFile):
       try:  
               os.remove(psFile)
