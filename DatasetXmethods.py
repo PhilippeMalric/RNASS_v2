@@ -85,7 +85,7 @@ def fastaErrase(outFile,name):
               print ("Failed to errase : " + outFile)
               exit(1)
 
-  psFile = dir_of_prog+name[:42]+"_ss.ps"
+  psFile = name[:42]+"_ss.ps"
   if os.path.exists(psFile):
       try:  
               os.remove(psFile)
@@ -97,8 +97,10 @@ def fastaErrase(outFile,name):
       print("remove failed : "+ psFile)
 
   #print ">> Done!"
-def rnaFold(filePath,name,seq):           
-    fastaP = filePath + name+".fa"
+def rnaFold(filePath,name,seq):
+    #test
+    os.chdir(filePath)
+    fastaP = name+".fa"
     #print ("fastaP = "+fastaP)
     fastaWrite(fastaP,seq,name)
     stri = "RNAfold < \""+fastaP+"\" −noPS -p "
@@ -106,6 +108,7 @@ def rnaFold(filePath,name,seq):
     Process=Popen([stri],shell=True,stdout=PIPE,stderr=PIPE)
     output,err =  Process.communicate()
     fastaErrase(fastaP,name)
+    os.chdir(dir_of_prog)
     #print ("out : "+output.strip().decode('ascii'))
     lineSplited = output.strip().decode('ascii').split()
     #la sequence
