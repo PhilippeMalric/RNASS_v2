@@ -405,6 +405,10 @@ collection_out = collection +"_stat"
 if(options.verbose):
   print ("connection")
 
+db[collection].create_index(
+    ["soft", "ncm"],
+    unique=True
+)
 array_so = db[collection].find({"soft":"so"}).distinct("ncm")
 
 for ncm in array_so:
@@ -427,7 +431,10 @@ for ncm in array_mcff:
 
   db[collection_out].insert({"ncm":ncm,"soft":"mcff","low":mcffNcm_Low,"bg":mcffNcm_Bg,"hi":mcffNcm_Hi})
   
-
+db[collection_out].create_index(
+    ["soft", "ncm"],
+    unique=True
+)
 
 f_rdat_associated_with_hi_stn.close()
 print("fin")     
