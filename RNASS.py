@@ -31,6 +31,13 @@ start = timeit.default_timer()
 # 4 - All in
 
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 class RNASS:
       'generate an html file with d3.js in it to visualize reactivity data on secondary structure'
       count = 0 
@@ -836,7 +843,7 @@ class RNASS:
                       for i in range(0,len(rnaSuboptTab)):
                           #print ("rnaSuboptTab["+str(i)+"] : "+rnaSuboptTab[i])
                           rsoSplited = rnaSuboptTab[i].split()
-                          if ((rsoSplited[1][0] == "." or rsoSplited[1][0] == "(")and [float(rsoSplited[1]) == 0):
+                          if (is_number(rsoSplited[1]) and float(rsoSplited[1]) == 0):
                                   #print("breakOn : "+rsoSplited[0])
                                   self.fileError.write(str(self.root)+";"+str(self.id_ARN)+"\n")
                                   break
