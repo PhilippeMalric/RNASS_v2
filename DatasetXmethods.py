@@ -216,7 +216,7 @@ for file in onlyfiles :
                 print("seqTab len : "+str(len(rdat.seqTab)))
               for i in range(0,len(rdat.seqTab)):
                 seq = rdat.seqTab[i]
-                (ed,freqMfe) = rnaFold("./fasta_for_RNA_fold/",root+"_"+str(i)+id_unique,seq)
+                (ed,freqMfe) = rnaFold("fasta_for_RNA_fold/",root+"_"+str(i)+id_unique,seq)
                 v = value.data[i].values
                 v_avg = statistics.mean(v)
                 e = value.data[i].errors
@@ -269,7 +269,7 @@ for file in onlyfiles :
         collectionName = "collectionName_stat"
         dbName = "dbName"
 
-        filePath = "./Dataset_1m7/"+id_unique+"/"
+        filePath = "Dataset_1m7/"+id_unique+"/"
         if(options.verbose):
           print("filePath : "+filePath)
         if (not os.path.exists(filePath)):
@@ -332,7 +332,7 @@ if(options.verbose):
 collection = id_unique
 
 
-publicFolder = "./Dataset_1m7/"+id_unique
+publicFolder = "Dataset_1m7/"+id_unique
 
 pathTab = []
 pathTab.append({"name":"so_detail_mfe","path":["ncmTabDG_so"],"soft":"so"})
