@@ -843,7 +843,7 @@ class RNASS:
                       for i in range(0,len(rnaSuboptTab)):
                           #print ("rnaSuboptTab["+str(i)+"] : "+rnaSuboptTab[i])
                           rsoSplited = rnaSuboptTab[i].split()
-                          if (is_number(rsoSplited[1]) and float(rsoSplited[1]) == 0):
+                          if (not is_number(rsoSplited[1]) and float(rsoSplited[1]) == 0):
                                   #print("breakOn : "+rsoSplited[0])
                                   self.fileError.write(str(self.root)+";"+str(self.id_ARN)+"\n")
                                   break

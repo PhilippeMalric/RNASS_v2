@@ -143,9 +143,9 @@ score_seuil = float(args[2])
 prediction = False
 
 
-filesFilter = "ETERNA_R"
+filesFilter = "ETERNA_R95"
 
-keyWord = "qsub_pycharm1_"
+keyWord = "small_"
 
 collectionName = "collectionName_stat"
 dbName = "dbName"
