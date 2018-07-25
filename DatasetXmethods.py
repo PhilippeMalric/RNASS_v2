@@ -142,10 +142,14 @@ ed_seuil = float(args[0])
 stn_seuil = float(args[1])
 score_seuil = float(args[2])
 
+if(len(args) > 3):
+    filesFilter = args[3]
+else:
+    filesFilter = "ETERNA_R00_0002"
+
 prediction = False
 
 
-filesFilter = "ETERNA_R95"
 
 keyWord = "small_"
 
