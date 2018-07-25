@@ -105,7 +105,7 @@ def rnaFold(filePath,name,seq):
     print (stri)
     Process=Popen([stri],shell=True,stdout=PIPE,stderr=PIPE)
     output,err =  Process.communicate()
-    fastaErrase(fastaP,name)
+    #fastaErrase(fastaP,name)
     #print ("out : "+output.strip().decode('ascii'))
     lineSplited = output.strip().decode('ascii').split()
     #la sequence
