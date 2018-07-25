@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import statistics
-import sys
 import os
 import RNASS
 import json
-import math
 import handler
 from os import listdir
 from os.path import isfile, join
@@ -145,7 +143,7 @@ prediction = False
 
 filesFilter = "ETERNA_R"
 
-keyWord = "qsub_all9_"
+keyWord = "qsub_pycharm1_"
 
 if(prediction):
   pred_str = "_Pred_db-"+dbName+"-col-"+collectionName
