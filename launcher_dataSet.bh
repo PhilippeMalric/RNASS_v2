@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /u/malricp/DatasetXmethods
+echo "python3 DatasetXmethods.py $ed_seuil $stn_seuil $score_seuil"
+python3 DatasetXmethods.py $ed_seuil $stn_seuil $score_seuil 

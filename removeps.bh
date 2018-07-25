@@ -1,0 +1,10 @@
+cd /u/malricp/DatasetXmethods/
+ls > ls.txt 
+for file in `cat ls.txt`
+do
+ if [ ".ps" == ${file: -3} ]       #  this is the snag
+              then
+		echo $file
+                     rm "./$file"
+              fi
+done
