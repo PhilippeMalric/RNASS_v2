@@ -269,7 +269,7 @@ for file in onlyfiles :
         collectionName = "collectionName_stat"
         dbName = "dbName"
 
-        filePath  = "/u/malricp/DatasetXmethods/Dataset_1m7/"+id_unique+"/"
+        filePath = "./Dataset_1m7/"+id_unique+"/"
         if(options.verbose):
           print("filePath : "+filePath)
         if (not os.path.exists(filePath)):
@@ -332,7 +332,7 @@ if(options.verbose):
 collection = id_unique
 
 
-publicFolder = "/u/malricp/DatasetXmethods/Dataset_1m7/"+id_unique
+publicFolder = "./Dataset_1m7/"+id_unique
 
 pathTab = []
 pathTab.append({"name":"so_detail_mfe","path":["ncmTabDG_so"],"soft":"so"})
