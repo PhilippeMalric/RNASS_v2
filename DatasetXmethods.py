@@ -311,6 +311,8 @@ for file in onlyfiles :
         RNASS.RNASS(d,linesParsed,options)
         if(options.verbose):
           print(id_unique)
+      else:
+        print("noSeq")
         
 def filterMinus999(tab):
   newTab = []

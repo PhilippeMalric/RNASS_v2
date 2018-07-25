@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185d0fb8-70a5-49a6-bdba-f4e54a40bdb8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/DatasetXmethods.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatasetXmethods.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RNASS.py" beforeDir="false" afterPath="$PROJECT_DIR$/RNASS.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="286" column="36" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="36" />
+            <state relative-caret-position="384">
+              <caret line="314" column="20" selection-start-line="314" selection-start-column="20" selection-end-line="314" selection-end-column="20" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -28,8 +29,8 @@
       <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RNASS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="323" column="18" selection-start-line="323" selection-start-column="18" selection-end-line="323" selection-end-column="18" />
+            <state relative-caret-position="3312">
+              <caret line="323" column="30" selection-start-line="323" selection-start-column="30" selection-end-line="323" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -40,9 +41,9 @@
     <findStrings>
       <find>-999</find>
       <find>rnaFold</find>
-      <find>os.</find>
       <find>public</find>
       <find>publicFolder</find>
+      <find>os.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,8 +139,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="286" column="36" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="36" />
+        <state relative-caret-position="384">
+          <caret line="314" column="20" selection-start-line="314" selection-start-column="20" selection-end-line="314" selection-end-column="20" />
           <folding>
             <element signature="e#46#63#0" expanded="true" />
           </folding>
@@ -148,8 +149,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNASS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="323" column="18" selection-start-line="323" selection-start-column="18" selection-end-line="323" selection-end-column="18" />
+        <state relative-caret-position="3312">
+          <caret line="323" column="30" selection-start-line="323" selection-start-column="30" selection-end-line="323" selection-end-column="30" />
         </state>
       </provider>
     </entry>
