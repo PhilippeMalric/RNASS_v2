@@ -13,6 +13,8 @@ from optparse import OptionParser
 
 from subprocess import Popen,PIPE
 
+import pymongo
+
 dir_of_prog = os.path.dirname(os.path.abspath(__file__)) +"/"
 
 def scoreArrayAug(scoreA,index,f):
