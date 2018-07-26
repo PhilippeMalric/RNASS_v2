@@ -412,7 +412,7 @@ if(options.verbose):
   print ("connection")
 
 db[collection].create_index(
-    ["soft", "ncm"],
+    [("soft", pymongo.DESCENDING), ("ncm", pymongo.DESCENDING)],
     unique=True
 )
 array_so = db[collection].find({"soft":"so"}).distinct("ncm")
@@ -438,7 +438,7 @@ for ncm in array_mcff:
   db[collection_out].insert({"ncm":ncm,"soft":"mcff","low":mcffNcm_Low,"bg":mcffNcm_Bg,"hi":mcffNcm_Hi})
   
 db[collection_out].create_index(
-    ["soft", "ncm"],
+    [("soft",pymongo.DESCENDING),("ncm",pymongo.DESCENDING)],
     unique=True
 )
 
