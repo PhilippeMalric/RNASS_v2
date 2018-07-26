@@ -1,18 +1,18 @@
 #!/bin/bash
 echo "score"
-echo $(cat /u/malricp/DatasetXmethods/score_vecteur.txt);
+echo $(cat ./score_vecteur.txt);
 echo "stn"
-echo $(cat /u/malricp/DatasetXmethods/stn_vecteur.txt);
+echo $(cat ./stn_vecteur.txt);
 echo "ed"
-echo $(cat /u/malricp/DatasetXmethods/ed_vecteur.txt);
+echo $(cat ./ed_vecteur.txt);
 
-for filter in $(cat /u/malricp/DatasetXmethods/ETERNA.txt);
+for filter in $(cat ./ETERNA.txt);
 do
-    for score in $(cat /u/malricp/DatasetXmethods/score_vecteur.txt);
+    for score in $(cat ./score_vecteur.txt);
     do
-      for stn in $(cat /u/malricp/DatasetXmethods/stn_vecteur.txt);
+      for stn in $(cat ./stn_vecteur.txt);
       do
-        for ed_ in $(cat /u/malricp/DatasetXmethods/ed_vecteur.txt);
+        for ed_ in $(cat ./ed_vecteur.txt);
         do
           pwd=`pwd`
           echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh"
