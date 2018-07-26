@@ -321,7 +321,8 @@ class RNASS:
                       stop8 = timeit.default_timer()
                       if(options.verbose):
                         print (str(stop8 - start))
-                  print("no SS!")
+                  print("no SS ... So: "+str(len(self.sESTabsubOpt))+ " MCFF :" str(len(self.sESTabMcff)))
+
           self.fileError.close()
          
       def defVar(self,d,linesParsed):
