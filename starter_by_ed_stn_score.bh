@@ -8,7 +8,7 @@ echo $(cat /u/malricp/DatasetXmethods/ed_vecteur.txt);
 
 for filter in $(cat /u/malricp/DatasetXmethods/ETERNA.txt);
 do
-    done  for score in $(cat /u/malricp/DatasetXmethods/score_vecteur.txt);
+    for score in $(cat /u/malricp/DatasetXmethods/score_vecteur.txt);
     do
       for stn in $(cat /u/malricp/DatasetXmethods/stn_vecteur.txt);
       do
