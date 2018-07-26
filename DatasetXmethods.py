@@ -153,7 +153,7 @@ prediction = False
 
 
 
-keyWord = "small_"
+keyWord = "small2"
 
 collectionName = "collectionName_stat"
 dbName = "dbName"
