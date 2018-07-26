@@ -153,7 +153,7 @@ prediction = False
 
 
 
-keyWord = "small2"
+keyWord = "OneEXPatAtime"
 
 collectionName = "collectionName_stat"
 dbName = "dbName"

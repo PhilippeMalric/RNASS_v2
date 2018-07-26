@@ -6,31 +6,35 @@ echo $(cat /u/malricp/DatasetXmethods/stn_vecteur.txt);
 echo "ed"
 echo $(cat /u/malricp/DatasetXmethods/ed_vecteur.txt);
 
-for score in $(cat /u/malricp/DatasetXmethods/score_vecteur.txt);
+for filter in $(cat /u/malricp/DatasetXmethods/ETERNA.txt);
 do
-  for stn in $(cat /u/malricp/DatasetXmethods/stn_vecteur.txt);
-  do
-    for ed_ in $(cat /u/malricp/DatasetXmethods/ed_vecteur.txt);
+    done  for score in $(cat /u/malricp/DatasetXmethods/score_vecteur.txt);
     do
-      pwd=`pwd`
-      echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh"
-      qsubNum=`qsub  -o qsub_out -e qsub_er -v "ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score" -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh | cut -d. -f1 `
-      #sleep 1s
-      echo "qsubNum : "$qsubNum
-
-      running=`qstat | grep malricp | grep -v ' C ' | wc -l`
-      echo "running = "$running
-      
-      while [ $running -gt 20 ]
+      for stn in $(cat /u/malricp/DatasetXmethods/stn_vecteur.txt);
       do
-        echo "waiting 10s"
-        sleep 10s
-        running=`qstat | grep malricp | grep -v ' C ' | wc -l`
-        echo "running : "$running
+        for ed_ in $(cat /u/malricp/DatasetXmethods/ed_vecteur.txt);
+        do
+          pwd=`pwd`
+          echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh"
+          qsubNum=`qsub  -o qsub_out -e qsub_er -v "ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score,filtre=$filtre" -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh | cut -d. -f1 `
+          #sleep 1s
+          echo "qsubNum : "$qsubNum
+
+          running=`qstat | grep malricp | grep -v ' C ' | wc -l`
+          echo "running = "$running
+
+          while [ $running -gt 20 ]
+          do
+            echo "waiting 10s"
+            sleep 10s
+            running=`qstat | grep malricp | grep -v ' C ' | wc -l`
+            echo "running : "$running
+          done
+          #break
+        done
+        #break
       done
       #break
     done
     #break
-  done
-  #break
-done   
+done
