@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /u/malricp/DatasetXmethods
+cd /u/malricp/RNASS_v2
 echo "python3 DatasetXmethods.py $ed_seuil $stn_seuil $score_seuil $filtre"
 python3 DatasetXmethods.py $ed_seuil $stn_seuil $score_seuil 
