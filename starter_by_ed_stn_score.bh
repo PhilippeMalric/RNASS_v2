@@ -15,7 +15,7 @@ do
         for ed_ in $(cat ./ed_vecteur.txt);
         do
           pwd=`pwd`
-          echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh"
+          echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/RNASS_v2/launcher_dataSet.bh"
           qsubNum=`qsub  -o qsub_out -e qsub_er -v "ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score,filtre=$filtre" -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/DatasetXmethods/launcher_dataSet.bh | cut -d. -f1 `
           #sleep 1s
           echo "qsubNum : "$qsubNum
