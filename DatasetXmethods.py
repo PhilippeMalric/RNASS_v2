@@ -367,10 +367,9 @@ counter = 0
 
 for file in onlyfiles:
     if(file.endswith(".json") ):
-      if(options.verbose):
-        print("i : "+str(counter))
       counter += 1
-      if(counter > 100000):
+      print("file i : "+str(counter))
+      if(counter > 10000000):
         break
       rna = json.loads(open(publicFolder+"/"+file,"r").read())
       for dPath in pathTab:
@@ -414,8 +413,10 @@ if(options.verbose):
   print ("connection")
 
 array_so = db[collection].find({"soft":"so"}).distinct("ncm")
-
+counter = 0
 for ncm in array_so:
+  counter += 1
+  print(str(counter)+") ncm : "+ncm)
   soNcm_Low = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Low"})))
   soNcm_Bg = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Bg"})))
   soNcm_Hi = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Hi"})))
@@ -426,8 +427,10 @@ for ncm in array_so:
   
   
 array_mcff = db[collection].find({"soft":"mcff"}).distinct("ncm")
-
+counter = 0
 for ncm in array_mcff:
+  counter += 1
+  print(str(counter)+") mcff_ncm : "+ncm)
   mcffNcm_Low = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Low"})))
   mcffNcm_Bg = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Bg"})))
   mcffNcm_Hi = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Hi"})))

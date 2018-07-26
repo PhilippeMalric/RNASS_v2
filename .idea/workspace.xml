@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185d0fb8-70a5-49a6-bdba-f4e54a40bdb8" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/DatasetXmethods.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatasetXmethods.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RNASS.py" beforeDir="false" afterPath="$PROJECT_DIR$/RNASS.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
+            <state relative-caret-position="217">
+              <caret line="370" column="18" selection-start-line="370" selection-start-column="18" selection-end-line="370" selection-end-column="18" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -25,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNASS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="323" column="81" selection-start-line="323" selection-start-column="81" selection-end-line="323" selection-end-column="81" />
+            <state relative-caret-position="-2521">
+              <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -41,8 +42,8 @@
       <find>-999</find>
       <find>rnaFold</find>
       <find>public</find>
-      <find>publicFolder</find>
       <find>os.</find>
+      <find>publicFolder</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -51,8 +52,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DatasetXmethods.py" />
         <option value="$PROJECT_DIR$/RNASS.py" />
+        <option value="$PROJECT_DIR$/DatasetXmethods.py" />
       </list>
     </option>
   </component>
@@ -136,20 +137,20 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
+    <entry file="file://$PROJECT_DIR$/RNASS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="414" lean-forward="true" selection-start-line="414" selection-end-line="414" />
-          <folding>
-            <element signature="e#46#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2521">
+          <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RNASS.py">
+    <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="323" column="81" selection-start-line="323" selection-start-column="81" selection-end-line="323" selection-end-column="81" />
+        <state relative-caret-position="217">
+          <caret line="370" column="18" selection-start-line="370" selection-start-column="18" selection-end-line="370" selection-end-column="18" />
+          <folding>
+            <element signature="e#46#63#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
