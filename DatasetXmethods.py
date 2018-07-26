@@ -413,10 +413,6 @@ collection_out = collection +"_stat"
 if(options.verbose):
   print ("connection")
 
-db[collection].create_index(
-    [("soft", pymongo.DESCENDING), ("ncm", pymongo.DESCENDING)],
-    unique=True
-)
 array_so = db[collection].find({"soft":"so"}).distinct("ncm")
 
 for ncm in array_so:
