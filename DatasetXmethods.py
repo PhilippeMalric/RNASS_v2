@@ -87,7 +87,7 @@ def fastaErrase(outFile,name):
               print ("Failed to errase : " + outFile)
               exit(1)
 
-  psFile = name[:42]+"_ss.ps"
+  psFile = dir_of_prog+"fasta_for_RNA_fold/"+name[:42]+"_ss.ps"
   if os.path.exists(psFile):
       try:  
               os.remove(psFile)
