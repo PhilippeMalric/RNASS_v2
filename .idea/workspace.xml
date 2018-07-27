@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185d0fb8-70a5-49a6-bdba-f4e54a40bdb8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/starter_by_ed_stn_score.bh" beforeDir="false" afterPath="$PROJECT_DIR$/starter_by_ed_stn_score.bh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatasetXmethods.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatasetXmethods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RNASS.py" beforeDir="false" afterPath="$PROJECT_DIR$/RNASS.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="89" column="42" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="42" />
+            <state relative-caret-position="-616">
+              <caret line="154" column="18" selection-start-line="154" selection-start-column="18" selection-end-line="154" selection-end-column="18" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -34,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starter_by_ed_stn_score.bh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="starter_by_ed_stn_score.bh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starter_by_ed_stn_score.bh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -43,11 +44,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="score_vecteur.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/score_vecteur.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNASS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2521">
-              <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
+            <state relative-caret-position="371">
+              <caret line="944" column="47" selection-start-line="944" selection-start-column="47" selection-end-line="944" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -63,6 +73,9 @@
       <find>os.</find>
       <find>rmd</find>
       <find>sys</find>
+      <find>db</find>
+      <find>score_seuil</find>
+      <find>oneSS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -71,18 +84,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/RNASS.py" />
-        <option value="$PROJECT_DIR$/DatasetXmethods.py" />
         <option value="$PROJECT_DIR$/launcher_dataSet.bh" />
         <option value="$PROJECT_DIR$/starter_by_ed_stn_score.bh" />
+        <option value="$PROJECT_DIR$/DatasetXmethods.py" />
+        <option value="$PROJECT_DIR$/RNASS.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1031" />
-    <option name="y" value="-10" />
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
+    <option name="x" value="-983" />
+    <option name="y" value="-13" />
+    <option name="width" value="896" />
+    <option name="height" value="694" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -158,23 +171,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RNASS.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2521">
-          <caret line="324" column="22" selection-start-line="324" selection-start-column="22" selection-end-line="324" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="89" column="42" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="42" />
-          <folding>
-            <element signature="e#46#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/launcher_dataSet.bh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -186,6 +182,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="178" selection-start-line="18" selection-start-column="178" selection-end-line="18" selection-end-column="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_vecteur.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNASS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="944" column="47" selection-start-line="944" selection-start-column="47" selection-end-line="944" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-616">
+          <caret line="154" column="18" selection-start-line="154" selection-start-column="18" selection-end-line="154" selection-end-column="18" />
+          <folding>
+            <element signature="e#46#63#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

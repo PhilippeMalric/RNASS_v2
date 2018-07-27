@@ -940,9 +940,9 @@ class RNASS:
           for i in range(0,l):
             nt = {}
             nt.clear()
-            if(len(oneSS_so["ncmPredictionNtTab"]) > 0):
-              nt["predColor"] = oneSS_so["ncmPredictionNtTab"][i]
-              nt["scoreConfiance"] = oneSS_so["scoreTab"][i]
+            if(len(oneSS_mcff["ncmPredictionNtTab"]) > 0):
+              nt["predColor"] = oneSS_mcff["ncmPredictionNtTab"][i]
+              nt["scoreConfiance"] = oneSS_mcff["scoreTab"][i]
             nt["ncm"] = oneSS_mcff["ncmTabD"][i]
             nt["voisins"] = oneSS_mcff["voisinTab"][i]
             ntTab_mcff[i].append(nt)

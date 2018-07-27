@@ -149,14 +149,19 @@ if(len(args) > 3):
 else:
     filesFilter = "ETERNA_R00_0002"
 
-prediction = False
+if(len(args) > 4):
+    collectionName = args[4]
+else:
+    collectionName = "OneEXPatAtime_Filter_ETERNA_R00_0002_noPred__A_0_5_S_5_0_stn_6_0_ed_5_0_stat"
+
+
+prediction = True
 
 
 
 keyWord = "OneEXPatAtime"
 
-collectionName = "collectionName_stat"
-dbName = "dbName"
+dbName = "rdv"
 
 if(prediction):
   pred_str = "_Pred_db-"+dbName+"-col-"+collectionName
@@ -319,7 +324,8 @@ for file in onlyfiles :
           print(id_unique)
       else:
         print("noSeq")
-        
+
+
 def filterMinus999(tab):
   newTab = []
   for x in tab:
@@ -334,114 +340,115 @@ def filterDash(tab):
       tabtemp.append(x)
   return tabtemp
 
-if(options.verbose):
-  print("startLoaderCompile")
-client = MongoClient()
-client = MongoClient('majsrv1', 27027)
-dbName = "rdv"
-db = client[dbName]
-if(options.verbose):
-  print("connected")
+if (prediction):
+    if(options.verbose):
+      print("startLoaderCompile")
+    client = MongoClient()
+    client = MongoClient('majsrv1', 27027)
+    dbName = "rdv"
+    db = client[dbName]
+    if(options.verbose):
+      print("connected")
 
-collection = id_unique
-
-
-publicFolder = dir_of_prog+"Dataset_1m7/"+id_unique
-
-pathTab = []
-pathTab.append({"name":"so_detail_mfe","path":["ncmTabDG_so"],"soft":"so"})
-pathTab.append({"name":"mcff_detail_mfe","path":["ncmTabDG_mcff"],"soft":"mcff"})
-#pathTab.append({"name":"so_ncm","path":["localNcmD","so"],"soft":"so"})
-#pathTab.append({"name":"mcff_ncm","path":["localNcmD","mcff"],"soft":"mcff"})
+    collection = id_unique
 
 
-onlyfiles = [f for f in listdir(publicFolder)]
+    publicFolder = dir_of_prog+"Dataset_1m7/"+id_unique
 
-#onlyfiles = [file for file in listdir(mypath) if isfile(join(mypath, file))]
+    pathTab = []
+    pathTab.append({"name":"so_detail_mfe","path":["ncmTabDG_so"],"soft":"so"})
+    pathTab.append({"name":"mcff_detail_mfe","path":["ncmTabDG_mcff"],"soft":"mcff"})
+    #pathTab.append({"name":"so_ncm","path":["localNcmD","so"],"soft":"so"})
+    #pathTab.append({"name":"mcff_ncm","path":["localNcmD","mcff"],"soft":"mcff"})
 
-if(options.verbose):
-  print("onlyfiles : "+ str(len(onlyfiles)))
 
-rnaTab = []
-counter = 0
+    onlyfiles = [f for f in listdir(publicFolder)]
 
-for file in onlyfiles:
-    if(file.endswith(".json") ):
+    #onlyfiles = [file for file in listdir(mypath) if isfile(join(mypath, file))]
+
+    if(options.verbose):
+      print("onlyfiles : "+ str(len(onlyfiles)))
+
+    rnaTab = []
+    counter = 0
+
+    for file in onlyfiles:
+        if(file.endswith(".json") ):
+          counter += 1
+          print("file i : "+str(counter))
+          if(counter > 10000000):
+            break
+          rna = json.loads(open(publicFolder+"/"+file,"r").read())
+          for dPath in pathTab:
+            d = {}
+            rnaD = {}
+            t = rna["nts"]
+            filtered = filterMinus999(rna["scoreTab"])
+            hi_threshold = 1
+            low_threshold = 0.5
+            for nt in t:
+              o = nt
+              for p in dPath["path"]:
+                #print("keys : "+str(o.keys()))
+                mcn = o[p]
+              url = "http://majsrv1.iric.ca:3000/"+"|"+str(rna["rna_id"])+"|"+str(nt["position"])
+              #tbTemp.append(str(v))
+              mcn = mcn[0]["ncm"]["merge"]
+              root = mcn.replace(" ","&")
+              freq = "mfe"
+              score = str(nt["score"])
+              so_pairee = str(nt["freqPairee_so"])
+              mcff_pairee = str(nt["freqPairee_mcff"])
+              if(nt["score"] < low_threshold and nt["score"] != -999 ):
+                label ="Low"
+                db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
+
+              if(nt["score"] > hi_threshold and nt["score"] != -999):
+                label = "Hi"
+                db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
+
+              if((nt["score"] < hi_threshold and nt["score"] != -999) and nt["score"] > low_threshold ):
+                label = "Bg"
+                db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
+
+
+
+    collection_out = collection +"_stat"
+
+
+    if(options.verbose):
+      print ("connection")
+
+    array_so = db[collection].find({"soft":"so"}).distinct("ncm")
+    counter = 0
+    for ncm in array_so:
       counter += 1
-      print("file i : "+str(counter))
-      if(counter > 10000000):
-        break
-      rna = json.loads(open(publicFolder+"/"+file,"r").read())
-      for dPath in pathTab:
-        d = {}
-        rnaD = {}
-        t = rna["nts"]
-        filtered = filterMinus999(rna["scoreTab"])
-        hi_threshold = 1
-        low_threshold = 0.5 
-        for nt in t:
-          o = nt
-          for p in dPath["path"]:
-            #print("keys : "+str(o.keys()))
-            mcn = o[p]
-          url = "http://majsrv1.iric.ca:3000/"+"|"+str(rna["rna_id"])+"|"+str(nt["position"])
-          #tbTemp.append(str(v))
-          mcn = mcn[0]["ncm"]["merge"]
-          root = mcn.replace(" ","&")
-          freq = "mfe"
-          score = str(nt["score"])
-          so_pairee = str(nt["freqPairee_so"])
-          mcff_pairee = str(nt["freqPairee_mcff"])
-          if(nt["score"] < low_threshold and nt["score"] != -999 ):
-            label ="Low"
-            db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
-          
-          if(nt["score"] > hi_threshold and nt["score"] != -999):
-            label = "Hi"
-            db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
-            
-          if((nt["score"] < hi_threshold and nt["score"] != -999) and nt["score"] > low_threshold ):
-            label = "Bg"
-            db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
-          
-          
-          
-collection_out = collection +"_stat"
+      print(str(counter)+") ncm : "+ncm)
+      soNcm_Low = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Low"})))
+      soNcm_Bg = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Bg"})))
+      soNcm_Hi = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Hi"})))
+      #print ("so : "+ncm)
+
+      db[collection_out].insert({"ncm":ncm,"soft":"so","low":soNcm_Low,"bg":soNcm_Bg,"hi":soNcm_Hi})
 
 
-if(options.verbose):
-  print ("connection")
 
-array_so = db[collection].find({"soft":"so"}).distinct("ncm")
-counter = 0
-for ncm in array_so:
-  counter += 1
-  print(str(counter)+") ncm : "+ncm)
-  soNcm_Low = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Low"})))
-  soNcm_Bg = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Bg"})))
-  soNcm_Hi = len(list(db[collection].find({"ncm":ncm,"soft":"so","label":"Hi"})))
-  #print ("so : "+ncm)
+    array_mcff = db[collection].find({"soft":"mcff"}).distinct("ncm")
+    counter = 0
+    for ncm in array_mcff:
+      counter += 1
+      print(str(counter)+") mcff_ncm : "+ncm)
+      mcffNcm_Low = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Low"})))
+      mcffNcm_Bg = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Bg"})))
+      mcffNcm_Hi = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Hi"})))
+      #print ("mcff : "+ncm)
 
-  db[collection_out].insert({"ncm":ncm,"soft":"so","low":soNcm_Low,"bg":soNcm_Bg,"hi":soNcm_Hi})
-  
-  
-  
-array_mcff = db[collection].find({"soft":"mcff"}).distinct("ncm")
-counter = 0
-for ncm in array_mcff:
-  counter += 1
-  print(str(counter)+") mcff_ncm : "+ncm)
-  mcffNcm_Low = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Low"})))
-  mcffNcm_Bg = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Bg"})))
-  mcffNcm_Hi = len(list(db[collection].find({"ncm":ncm,"soft":"mcff","label":"Hi"})))
-  #print ("mcff : "+ncm)
+      db[collection_out].insert({"ncm":ncm,"soft":"mcff","low":mcffNcm_Low,"bg":mcffNcm_Bg,"hi":mcffNcm_Hi})
 
-  db[collection_out].insert({"ncm":ncm,"soft":"mcff","low":mcffNcm_Low,"bg":mcffNcm_Bg,"hi":mcffNcm_Hi})
-  
-db[collection_out].create_index(
-    [("soft",pymongo.DESCENDING),("ncm",pymongo.DESCENDING)],
-    unique=True
-)
+    db[collection_out].create_index(
+        [("soft",pymongo.DESCENDING),("ncm",pymongo.DESCENDING)],
+        unique=True
+    )
 
 f_rdat_associated_with_hi_stn.close()
 print("fin")     
