@@ -212,122 +212,123 @@ onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
 folder_in = "rmdb"
 linesParsed = []
-for file in onlyfiles :
-  if(options.verbose):
-    print("fileFilter : "+filesFilter + " file : "+file)
-  if(file.startswith(filesFilter)):
-      root = file[:-5]
+if(False):
+    for file in onlyfiles :
       if(options.verbose):
-        print("root : "+root )
-      rdat = handler.RDATFile()
-      rdat.load(open(folder+file))
-      rdat.validate()
-      global_annotation = rdat._annotation_str(rdat.annotations,"|")
-      for (key,value) in rdat.constructs.items() :
-        if(hasattr(rdat.constructs[key].data[0],"annotations")):
+        print("fileFilter : "+filesFilter + " file : "+file)
+      if(file.startswith(filesFilter)):
+          root = file[:-5]
           if(options.verbose):
-            print("annotation in data")
-            print("annotations : "+str(rdat.constructs[key].data[0].annotations))
-          annot_tab_str = [x.annotations for x in rdat.constructs[key].data]
-          if("sequence" in rdat.constructs[key].data[0].annotations):
+            print("root : "+root )
+          rdat = handler.RDATFile()
+          rdat.load(open(folder+file))
+          rdat.validate()
+          global_annotation = rdat._annotation_str(rdat.annotations,"|")
+          for (key,value) in rdat.constructs.items() :
+            if(hasattr(rdat.constructs[key].data[0],"annotations")):
               if(options.verbose):
-                print ("sequence in annotation")
-              rdat.seqTab = [x.annotations["sequence"][0] for x in rdat.constructs[key].data]
-              #print("seqTab : "+"\n".join(rdat.seqTab))
-              if(options.verbose):
-                print("seqTab len : "+str(len(rdat.seqTab)))
-              for i in range(0,len(rdat.seqTab)):
-                seq = rdat.seqTab[i]
-                (ed,freqMfe) = rnaFold(dir_of_prog+"fasta_for_RNA_fold/",root+"_"+str(i)+id_unique,seq)
-                v = value.data[i].values
-                v_avg = statistics.mean(v)
-                e = value.data[i].errors
-                offS = rdat.constructs[key].offset
-                v = scoreArrayAug(v,offS,len(seq))
-                e = scoreArrayAug(e,offS,len(seq))
-                if(options.verbose):
-                  print("ed : "+str(ed)+" v_avg : "+str(v_avg))
-                if("signal_to_noise" in rdat.constructs[key].data[0].annotations):
+                print("annotation in data")
+                print("annotations : "+str(rdat.constructs[key].data[0].annotations))
+              annot_tab_str = [x.annotations for x in rdat.constructs[key].data]
+              if("sequence" in rdat.constructs[key].data[0].annotations):
                   if(options.verbose):
-                    print ("signal_to_noise in annotation")
-                  stn = rdat.constructs[key].data[i].annotations["signal_to_noise"][0].split(":")[1]
-                else : 
+                    print ("sequence in annotation")
+                  rdat.seqTab = [x.annotations["sequence"][0] for x in rdat.constructs[key].data]
+                  #print("seqTab : "+"\n".join(rdat.seqTab))
                   if(options.verbose):
-                    print ("No signal_to_noise in annotation")
-                  stn = 100 
-                  
-                c1 = ("modifier" in rdat.constructs[key].data[0].annotations and rdat.constructs[key].data[i].annotations["modifier"][0] == "1M7")
-                c2 = ("modifier" in rdat.annotations and rdat.annotations["modifier"][0] == "1M7")
-                
-                if(float(stn) < stn_seuil and v_avg < score_seuil and ed < ed_seuil):
-                  if(c1 or c2 ): 
+                    print("seqTab len : "+str(len(rdat.seqTab)))
+                  for i in range(0,len(rdat.seqTab)):
+                    seq = rdat.seqTab[i]
+                    (ed,freqMfe) = rnaFold(dir_of_prog+"fasta_for_RNA_fold/",root+"_"+str(i)+id_unique,seq)
+                    v = value.data[i].values
+                    v_avg = statistics.mean(v)
+                    e = value.data[i].errors
+                    offS = rdat.constructs[key].offset
+                    v = scoreArrayAug(v,offS,len(seq))
+                    e = scoreArrayAug(e,offS,len(seq))
                     if(options.verbose):
-                      print("1m7")
-                    oneLineParsed =  {}
-                    oneLineParsed.clear()
-                    oneLineParsed["ed"] = ed   
-                    oneLineParsed["stn"] = stn   
-                    oneLineParsed["freqMfe"] = freqMfe   
-                    oneLineParsed["seq"] = seq
-                    oneLineParsed["structure"] = ""
-                    oneLineParsed["scoreTab"] =  v
-                    oneLineParsed["errorTab"] = e
-                    oneLineParsed["old_TSV_ID"] = "id_"+str(counter)
-                    oneLineParsed["old_info"] = rdat.constructs[key].data[i].annotations
-                    #print("stn : "+str(rnaOld["stn"]))
-                    linesParsed.append(oneLineParsed)
-                    counter += 1
-                    if(counter > 1000000):
-                      print("break")
-                      break
-                else:
-                  f_rdat_associated_with_hi_stn.write("file2_"+root+"__stn:"+stn+"\n")
-                  if(options.verbose):
-                    print("file : "+root+"__stn: "+str(stn)+"\n")
-      #-----------------------------------------------------------------------------
-      if(len(linesParsed)>0):
-        
-        nbNt_Ncm = 10
+                      print("ed : "+str(ed)+" v_avg : "+str(v_avg))
+                    if("signal_to_noise" in rdat.constructs[key].data[0].annotations):
+                      if(options.verbose):
+                        print ("signal_to_noise in annotation")
+                      stn = rdat.constructs[key].data[i].annotations["signal_to_noise"][0].split(":")[1]
+                    else :
+                      if(options.verbose):
+                        print ("No signal_to_noise in annotation")
+                      stn = 100
+
+                    c1 = ("modifier" in rdat.constructs[key].data[0].annotations and rdat.constructs[key].data[i].annotations["modifier"][0] == "1M7")
+                    c2 = ("modifier" in rdat.annotations and rdat.annotations["modifier"][0] == "1M7")
+
+                    if(float(stn) < stn_seuil and v_avg < score_seuil and ed < ed_seuil):
+                      if(c1 or c2 ):
+                        if(options.verbose):
+                          print("1m7")
+                        oneLineParsed =  {}
+                        oneLineParsed.clear()
+                        oneLineParsed["ed"] = ed
+                        oneLineParsed["stn"] = stn
+                        oneLineParsed["freqMfe"] = freqMfe
+                        oneLineParsed["seq"] = seq
+                        oneLineParsed["structure"] = ""
+                        oneLineParsed["scoreTab"] =  v
+                        oneLineParsed["errorTab"] = e
+                        oneLineParsed["old_TSV_ID"] = "id_"+str(counter)
+                        oneLineParsed["old_info"] = rdat.constructs[key].data[i].annotations
+                        #print("stn : "+str(rnaOld["stn"]))
+                        linesParsed.append(oneLineParsed)
+                        counter += 1
+                        if(counter > 1000000):
+                          print("break")
+                          break
+                    else:
+                      f_rdat_associated_with_hi_stn.write("file2_"+root+"__stn:"+stn+"\n")
+                      if(options.verbose):
+                        print("file : "+root+"__stn: "+str(stn)+"\n")
+          #-----------------------------------------------------------------------------
+          if(len(linesParsed)>0):
+
+            nbNt_Ncm = 10
 
 
-        filePath = dir_of_prog+"Dataset_1m7/"+id_unique+"/"
-        if(options.verbose):
-          print("filePath : "+filePath)
-        if (not os.path.exists(filePath)):
-          os.makedirs(filePath)
-        #RNA_featureChoice.RNA2D(filePath,root,linesParsed,folder,"experience_6_nov_2017",id_num) 
-        d = {
-            'inputFileLoader': "test",
-            'filePath': fa_adList_folder,
-            'publicFolder': filePath,
-            'currentExp': "experience_24_juillet_2018",
-            'uniqueId': "0",
-            'soTreshold': 1,
-            'mcffTreshold':1,
-            'CSVFolder':"CSV_FOLDER/"+"test",
-            'prediction':prediction ,
-            'printCsv':False,
-            'so_e_value':1,
-            'lowScore' : 0.5,
-            'hiScore' : 1,
-            'predCutOff' : 0.5,
-            'stnSeuil' : stn_seuil,
-            'nbNt_Ncm' : nbNt_Ncm,
-            "adenineCutOff" : adenineCutOff,
-            "scoreCutOff" : score_seuil,
-            "ed_seuil" : ed_seuil,
-            "collectionName" : collectionName,
-            "dbName":dbName,
-            "root":root,
-            "MFP":False
-            }
-        if(options.verbose):
-          print("linesParsed : "+str(len(linesParsed)))
-        RNASS.RNASS(d,linesParsed,options)
-        if(options.verbose):
-          print(id_unique)
-      else:
-        print("noSeq")
+            filePath = dir_of_prog+"Dataset_1m7/"+id_unique+"/"
+            if(options.verbose):
+              print("filePath : "+filePath)
+            if (not os.path.exists(filePath)):
+              os.makedirs(filePath)
+            #RNA_featureChoice.RNA2D(filePath,root,linesParsed,folder,"experience_6_nov_2017",id_num)
+            d = {
+                'inputFileLoader': "test",
+                'filePath': fa_adList_folder,
+                'publicFolder': filePath,
+                'currentExp': "experience_24_juillet_2018",
+                'uniqueId': "0",
+                'soTreshold': 1,
+                'mcffTreshold':1,
+                'CSVFolder':"CSV_FOLDER/"+"test",
+                'prediction':prediction ,
+                'printCsv':False,
+                'so_e_value':1,
+                'lowScore' : 0.5,
+                'hiScore' : 1,
+                'predCutOff' : 0.5,
+                'stnSeuil' : stn_seuil,
+                'nbNt_Ncm' : nbNt_Ncm,
+                "adenineCutOff" : adenineCutOff,
+                "scoreCutOff" : score_seuil,
+                "ed_seuil" : ed_seuil,
+                "collectionName" : collectionName,
+                "dbName":dbName,
+                "root":root,
+                "MFP":False
+                }
+            if(options.verbose):
+              print("linesParsed : "+str(len(linesParsed)))
+            RNASS.RNASS(d,linesParsed,options)
+            if(options.verbose):
+              print(id_unique)
+          else:
+            print("noSeq")
 
 
 def filterMinus999(tab):
@@ -344,7 +345,7 @@ def filterDash(tab):
       tabtemp.append(x)
   return tabtemp
 
-if (prediction):
+if (not prediction):
     if(options.verbose):
       print("startLoaderCompile")
     client = MongoClient()
