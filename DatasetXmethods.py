@@ -148,7 +148,9 @@ score_seuil = float(args[2])
 if(len(args) > 3):
     filesFilter = args[3]
 else:
-    filesFilter = "ETERNA_R00_0002"
+    filesFilter = "0_9"
+    #filesFilter = "ETERNA_R00_0002"
+
 
 if(len(args) > 4):
     collectionName = args[4]
@@ -160,7 +162,7 @@ prediction = False
 
 
 
-keyWord = "Same"
+keyWord = "re_filter"
 
 dbName = "rdv"
 
@@ -210,13 +212,18 @@ rna2DTab = []
 folder = "/u/malricp/_MCfoldVsRNAsubopt/projet/Mam4/rmdb/"
 onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
+re_filter = re.compile('ETERNA_R(.*)_.*')
+
+
 folder_in = "rmdb"
 linesParsed = []
 if(True):
     for file in onlyfiles :
       if(options.verbose):
         print("fileFilter : "+filesFilter + " file : "+file)
-      if(file.startswith(filesFilter)):
+      #if(file.startswith(filesFilter)):
+      exp_num = int(re_filter.search(file).group(1))
+      if(exp_num > 0 and exp_num < 9):
           root = file[:-5]
           if(options.verbose):
             print("root : "+root )
