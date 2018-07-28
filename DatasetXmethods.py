@@ -177,7 +177,7 @@ adenineCutOff = 0.5
   
 #filepath est le repertoire des fichier JSON  
 id_unique = (keyWord+"_Filter_"+filesFilter+pred_str+"_A_"+str(adenineCutOff)+"_S_"+str(score_seuil)+"_stn_"+str(stn_seuil)+"_ed_"+str(ed_seuil)).replace(".","_").replace("-","_")
-id_unique_short = keyWord+"_"+"_".join(str(score_seuil),str(stn_seuil),str(ed_seuil))
+id_unique_short = keyWord+"_"+"_".join([str(score_seuil),str(stn_seuil),str(ed_seuil)])
 
 if(options.verbose):
   print("options : "+str(options))
