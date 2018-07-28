@@ -212,7 +212,7 @@ onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
 folder_in = "rmdb"
 linesParsed = []
-if(False):
+if(True):
     for file in onlyfiles :
       if(options.verbose):
         print("fileFilter : "+filesFilter + " file : "+file)
