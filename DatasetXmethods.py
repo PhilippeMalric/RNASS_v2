@@ -167,7 +167,7 @@ dbName = "rdv"
 if(prediction):
   p = re.compile('_S_(.*)_stn_(.*)_ed_(.*)')
   re_return = p.search(collectionName)
-  pred_str = "_Pred_db-"+dbName+"-col-"+"_".join([[re_return.group(x) for x in [1,2,3]]])+"_"
+  pred_str = "_Pred_db-"+dbName+"-col-"+"_".join(re_return.group(x) for x in [1,2,3])+"_"
 else:
   collectionName="-"
   pred_str = "_noPred_" 
