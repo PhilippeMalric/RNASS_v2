@@ -7,6 +7,7 @@ import json
 import handler
 from os import listdir
 from os.path import isfile, join
+import re
 
 from pymongo import MongoClient
 from optparse import OptionParser
@@ -164,7 +165,8 @@ keyWord = "S_pred"
 dbName = "rdv"
 
 if(prediction):
-  re_return ='_S_(.*)_stn_(.*)_ed_(.*)'
+  p = re.compile('_S_(.*)_stn_(.*)_ed_(.*)')
+  re_return = p.search(collectionName)
   pred_str = "_Pred_db-"+dbName+"-col-"+"_".join([re_return.groupe(x) for x in [1,2,3]])+"_"
 else:
   collectionName="-"
