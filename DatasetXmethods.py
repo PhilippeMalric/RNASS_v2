@@ -148,7 +148,7 @@ score_seuil = float(args[2])
 if(len(args) > 3):
     filesFilter = args[3]
 else:
-    filesFilter = "0_9"
+    filesFilter = "0_90"
     #filesFilter = "ETERNA_R00_0002"
 
 
@@ -228,7 +228,7 @@ if(True):
           exp_num = 0
       else:
           exp_num = int(reF_search.group(1))
-      if(exp_num > 0 and exp_num < 9):
+      if(exp_num > 0 and exp_num < 90):
           root = file[:-5]
           if(options.verbose):
             print("root : "+root )
