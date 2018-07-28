@@ -16,8 +16,8 @@
       <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="179" column="86" selection-start-line="179" selection-start-column="86" selection-end-line="179" selection-end-column="86" />
+            <state relative-caret-position="255">
+              <caret line="162" column="15" selection-start-line="162" selection-start-column="15" selection-end-line="162" selection-end-column="15" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -55,8 +55,8 @@
       <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNASS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="944" column="47" selection-start-line="944" selection-start-column="47" selection-end-line="944" selection-end-column="47" />
+            <state relative-caret-position="388">
+              <caret line="1128" column="23" selection-start-line="1128" selection-start-column="18" selection-end-line="1128" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -73,8 +73,9 @@
       <find>rmd</find>
       <find>sys</find>
       <find>db</find>
-      <find>score_seuil</find>
       <find>oneSS</find>
+      <find>score_seuil</find>
+      <find>ncm :</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,15 +194,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNASS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="944" column="47" selection-start-line="944" selection-start-column="47" selection-end-line="944" selection-end-column="47" />
+        <state relative-caret-position="388">
+          <caret line="1128" column="23" selection-start-line="1128" selection-start-column="18" selection-end-line="1128" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="179" column="86" selection-start-line="179" selection-start-column="86" selection-end-line="179" selection-end-column="86" />
+        <state relative-caret-position="255">
+          <caret line="162" column="15" selection-start-line="162" selection-start-column="15" selection-end-line="162" selection-end-column="15" />
           <folding>
             <element signature="e#46#63#0" expanded="true" />
           </folding>

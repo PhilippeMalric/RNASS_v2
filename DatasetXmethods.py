@@ -156,11 +156,11 @@ else:
     collectionName = "OneEXPatAtime_Filter_ETERNA_R00_0002_noPred__A_0_5_S_5_0_stn_6_0_ed_5_0_stat"
 
 
-prediction = True
+prediction = False
 
 
 
-keyWord = "S_pred"
+keyWord = "Same"
 
 dbName = "rdv"
 
