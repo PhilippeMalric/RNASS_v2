@@ -222,7 +222,11 @@ if(True):
       if(options.verbose):
         print("fileFilter : "+filesFilter + " file : "+file)
       #if(file.startswith(filesFilter)):
-      exp_num = int(re_filter.search(file).group(1))
+      reF_search = re_filter.search(file)
+      if(reF_search == None):
+          exp_num = 0
+      else:
+          exp_num = int(reF_search.group(1))
       if(exp_num > 0 and exp_num < 9):
           root = file[:-5]
           if(options.verbose):
