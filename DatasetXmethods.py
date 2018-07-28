@@ -212,13 +212,14 @@ rna2DTab = []
 folder = "/u/malricp/_MCfoldVsRNAsubopt/projet/Mam4/rmdb/"
 onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
-re_filter = re.compile('ETERNA_R(.*)_.*.rdat')
+re_filter = re.compile('ETERNA_R(.*)_.*\.rdat')
 
 
 folder_in = "rmdb"
 linesParsed = []
 if(True):
     for file in onlyfiles :
+      print("file : "+file)
       if(options.verbose):
         print("fileFilter : "+filesFilter + " file : "+file)
       #if(file.startswith(filesFilter)):
