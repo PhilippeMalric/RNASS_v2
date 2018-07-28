@@ -212,7 +212,7 @@ rna2DTab = []
 folder = "/u/malricp/_MCfoldVsRNAsubopt/projet/Mam4/rmdb/"
 onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
 
-re_filter = re.compile('ETERNA_R(.*)_.*')
+re_filter = re.compile('ETERNA_R(.*)_.*.rdat')
 
 
 folder_in = "rmdb"
