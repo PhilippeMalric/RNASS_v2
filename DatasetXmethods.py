@@ -152,7 +152,7 @@ ed_seuil = float(args[2])
 if(len(args) > 3):
     filesFilter = args[3]
 else:
-    filesFilter = "90_100"
+    filesFilter = "_0_"
     #filesFilter = "ETERNA_R00_0002"
 
 
@@ -232,7 +232,8 @@ if(True):
           exp_num = 0
       else:
           exp_num = int(reF_search.group(1))
-      if(exp_num >= 90 and exp_num < 100):
+      #if (exp_num == 90 and exp_num < 100):
+      if ("ETERNA_R00_0002.rdat" == file):
           root = file[:-5]
           if(options.verbose):
             print("root : "+root )
