@@ -160,7 +160,7 @@ else:
     collectionName = "re_filter_Filter_0_90_noPred__A_0_5_S_1_0_stn_1_0_ed_2_0_stat"
 
 
-prediction = False
+prediction = True
 
 
 
