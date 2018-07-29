@@ -143,9 +143,11 @@ parser.add_option("-q", "--quiet",
 
 (options, args) = parser.parse_args()
 
-ed_seuil = float(args[0])
+
+score_seuil = float(args[0])
 stn_seuil = float(args[1])
-score_seuil = float(args[2])
+ed_seuil = float(args[2])
+
 
 if(len(args) > 3):
     filesFilter = args[3]
@@ -230,7 +232,7 @@ if(True):
           exp_num = 0
       else:
           exp_num = int(reF_search.group(1))
-      if(exp_num > 90 and exp_num < 100):
+      if(exp_num >= 90 and exp_num < 100):
           root = file[:-5]
           if(options.verbose):
             print("root : "+root )
@@ -469,10 +471,12 @@ if (not prediction):
         unique=True
     )
 
-f_rdat_associated_with_hi_stn.close()
-print("fin")     
-print("collection : " + collection_out)
-
+if(not prediction):
+    f_rdat_associated_with_hi_stn.close()
+    print("fin")
+    print("collection : " + collection_out)
+else:
+    print("Folder Pred :"+publicFolder)
 
 
 

@@ -16,8 +16,8 @@
       <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+            <state relative-caret-position="302">
+              <caret line="478" column="24" selection-start-line="478" selection-start-column="24" selection-end-line="478" selection-end-column="24" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -76,6 +76,7 @@
       <find>oneSS</find>
       <find>score_seuil</find>
       <find>ncm :</find>
+      <find>id_unique</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,8 +202,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+        <state relative-caret-position="302">
+          <caret line="478" column="24" selection-start-line="478" selection-start-column="24" selection-end-line="478" selection-end-column="24" />
           <folding>
             <element signature="e#46#63#0" expanded="true" />
           </folding>
