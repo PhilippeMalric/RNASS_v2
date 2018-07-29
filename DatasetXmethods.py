@@ -16,6 +16,8 @@ from subprocess import Popen,PIPE
 
 import pymongo
 
+#re_filter_Filter_0_90_noPred__A_0_5_S_1_0_stn_1_0_ed_2_0_stat
+
 dir_of_prog = os.path.dirname(os.path.abspath(__file__)) +"/"
 
 def scoreArrayAug(scoreA,index,f):
@@ -148,14 +150,14 @@ score_seuil = float(args[2])
 if(len(args) > 3):
     filesFilter = args[3]
 else:
-    filesFilter = "0_90"
+    filesFilter = "90_100"
     #filesFilter = "ETERNA_R00_0002"
 
 
 if(len(args) > 4):
     collectionName = args[4]
 else:
-    collectionName = "OneEXPatAtime_Filter_ETERNA_R00_0002_noPred__A_0_5_S_5_0_stn_6_0_ed_5_0_stat"
+    collectionName = "re_filter_Filter_0_90_noPred__A_0_5_S_1_0_stn_1_0_ed_2_0_stat"
 
 
 prediction = False
@@ -169,7 +171,7 @@ dbName = "rdv"
 if(prediction):
   p = re.compile('_S_(.*)_stn_(.*)_ed_(.*)')
   re_return = p.search(collectionName)
-  pred_str = "_Pred_db-"+dbName+"-col-"+"_".join(re_return.group(x) for x in [1,2,3])+"_"
+  pred_str = "_Pred_db_"+dbName+"-col-"+"_".join(re_return.group(x) for x in [1,2,3])+"_"
 else:
   collectionName="-"
   pred_str = "_noPred_" 
@@ -228,7 +230,7 @@ if(True):
           exp_num = 0
       else:
           exp_num = int(reF_search.group(1))
-      if(exp_num > 0 and exp_num < 90):
+      if(exp_num > 90 and exp_num < 100):
           root = file[:-5]
           if(options.verbose):
             print("root : "+root )
