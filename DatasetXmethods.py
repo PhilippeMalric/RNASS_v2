@@ -166,7 +166,7 @@ prediction = True
 
 
 
-keyWord = "987_re_filter"
+keyWord = "987_re_filter_10SO"
 
 dbName = "rdv"
 
@@ -319,8 +319,8 @@ if(True):
                 'publicFolder': filePath,
                 'currentExp': "experience_24_juillet_2018",
                 'uniqueId': "0",
-                'soTreshold': 1,
-                'mcffTreshold':1,
+                'soTreshold': 10,
+                'mcffTreshold':10,
                 'CSVFolder':"CSV_FOLDER/"+"test",
                 'prediction':prediction ,
                 'printCsv':False,
