@@ -476,7 +476,7 @@ if(not prediction):
     print("fin")
     print("collection : " + collection_out)
 else:
-    print("Folder Pred :"+publicFolder)
+    print("Folder Pred :"+dir_of_prog+"Dataset_1m7/"+id_unique)
 
 
 

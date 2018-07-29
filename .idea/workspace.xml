@@ -16,8 +16,8 @@
       <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="168" column="29" selection-start-line="168" selection-start-column="29" selection-end-line="168" selection-end-column="29" />
+            <state relative-caret-position="285">
+              <caret line="478" column="62" selection-start-line="478" selection-start-column="62" selection-end-line="478" selection-end-column="62" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -79,6 +79,7 @@
       <find>id_unique</find>
       <find>cut</find>
       <find>mcffTreshold</find>
+      <find>pub</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,8 +205,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="168" column="29" selection-start-line="168" selection-start-column="29" selection-end-line="168" selection-end-column="29" />
+        <state relative-caret-position="285">
+          <caret line="478" column="62" selection-start-line="478" selection-start-column="62" selection-end-line="478" selection-end-column="62" />
           <folding>
             <element signature="e#46#63#0" expanded="true" />
           </folding>
