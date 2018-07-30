@@ -1341,6 +1341,7 @@ class RNASS:
             
             s = str(ntBetweVdEtVg1Str+'_'+ntBetweVdEtVg2Str + self.seqNcm(self.seq[vg:vd+1],self.seq[d_pb[vd]:d_pb[vg]+1],detailed)+self.posNcm(str(i-vg),True))
             ncmD[i]['nonPaired'] = s
+            ncmD[i]['merge'] = s
       
       
 
