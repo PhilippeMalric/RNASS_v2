@@ -148,11 +148,12 @@ score_seuil = float(args[0])
 stn_seuil = float(args[1])
 ed_seuil = float(args[2])
 
+#----------------------------------------------------------------Variable Globale
 
 if(len(args) > 3):
     filesFilter = args[3]
 else:
-    filesFilter = "_0_"
+    filesFilter = "_first1000_"
     #filesFilter = "ETERNA_R00_0002"
 
 
@@ -166,7 +167,7 @@ prediction = True
 
 
 
-keyWord = "987_re_filter_10SO"
+keyWord = "non-paired"
 
 dbName = "rdv"
 
@@ -232,8 +233,8 @@ if(True):
           exp_num = 0
       else:
           exp_num = int(reF_search.group(1))
-      #if (exp_num == 90 and exp_num < 100):
-      if ("ETERNA_R00_0002.rdat" == file):
+      if (exp_num > 0 and exp_num < 90):
+      #if ("ETERNA_R00_0002.rdat" == file):
           root = file[:-5]
           if(options.verbose):
             print("root : "+root )
@@ -295,7 +296,7 @@ if(True):
                         #print("stn : "+str(rnaOld["stn"]))
                         linesParsed.append(oneLineParsed)
                         counter += 1
-                        if(counter > 1000000):
+                        if(counter > 1000):
                           print("break")
                           break
                     else:
@@ -433,7 +434,10 @@ if (not prediction):
                 label = "Bg"
                 db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
 
-
+    db[collection].create_index(
+        [("soft", pymongo.HASHED), ("ncm", pymongo.HASHED)],
+        unique=False
+    )
 
     collection_out = collection +"_stat"
 
@@ -468,7 +472,7 @@ if (not prediction):
       db[collection_out].insert({"ncm":ncm,"soft":"mcff","low":mcffNcm_Low,"bg":mcffNcm_Bg,"hi":mcffNcm_Hi})
 
     db[collection_out].create_index(
-        [("soft",pymongo.DESCENDING),("ncm",pymongo.DESCENDING)],
+        [("soft",pymongo.HASHED),("ncm",pymongo.HASHED)],
         unique=True
     )
 
