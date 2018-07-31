@@ -167,7 +167,7 @@ prediction = False
 
 
 
-keyWord = "non-paired"
+keyWord = "test_1_"
 
 dbName = "rdv"
 
@@ -296,7 +296,7 @@ if(True):
                         #print("stn : "+str(rnaOld["stn"]))
                         linesParsed.append(oneLineParsed)
                         counter += 1
-                        if(counter > 10):
+                        if(counter > 1):
                           print("break")
                           break
                     else:
@@ -435,7 +435,7 @@ if (not prediction):
                 db[collection].insert({"ncm":root,"soft":dPath["soft"],"url":url,"freq":freq,"score":score,"so_pairee":so_pairee,"mcff_pairee":mcff_pairee,"label":label})
 
     db[collection].create_index(
-        [("soft", pymongo.HASHED), ("ncm", pymongo.HASHED)],
+        [("soft", pymongo.TEXT), ("ncm", pymongo.TEXT)],
         unique=False
     )
 
