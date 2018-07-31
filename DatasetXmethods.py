@@ -153,7 +153,7 @@ ed_seuil = float(args[2])
 if(len(args) > 3):
     filesFilter = args[3]
 else:
-    filesFilter = "_first1000_"
+    filesFilter = "_All_w_up_"
     #filesFilter = "ETERNA_R00_0002"
 
 
@@ -296,7 +296,7 @@ if(True):
                         #print("stn : "+str(rnaOld["stn"]))
                         linesParsed.append(oneLineParsed)
                         counter += 1
-                        if(counter > 1):
+                        if(counter > 100000000):
                           print("break")
                           break
                     else:
@@ -472,7 +472,7 @@ if (not prediction):
       db[collection_out].insert({"ncm":ncm,"soft":"mcff","low":mcffNcm_Low,"bg":mcffNcm_Bg,"hi":mcffNcm_Hi})
 
     db[collection_out].create_index(
-        [("soft",pymongo.HASHED),("ncm",pymongo.HASHED)],
+        [("soft",pymongo.TEXT),("ncm",pymongo.TEXT)],
         unique=True
     )
 

@@ -50,7 +50,7 @@ class RNASS:
           if(options.verbose):
             print("options.verbose : "+str(options.verbose))
           
-          self.fileError = open("fileError.txt",'a')
+          self.fileError = open("fileError_ALL.txt",'a')
           
           if(options.verbose):
             print ("begining of RNA.py -----------------------------")
