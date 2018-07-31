@@ -380,12 +380,12 @@ class RNASS:
             if(i >= len(ncm_by_nt_d_Dict["mcff_u"])):
               print("i :"+str(i)+ "len(ncm_by_nt_d_Dict['mcff_u'] : "+str(len(ncm_by_nt_d_Dict["mcff_u"])))
               self.error = True
-              self.fileError.write(str(self.root)+";"+str(self.id_ARN)+"\n")
+              self.fileError.write("i >= len(ncm_by_nt_d_Dict_mcff,"+str(self.root)+";"+str(self.id_ARN)+"\n")
               return nTs
             if(i >= len(ncm_by_nt_d_Dict["so_u"])):
               print("i :"+str(i)+ "len(ncm_by_nt_d_Dict['so_u'] : "+str(len(ncm_by_nt_d_Dict["so_u"])))
               self.error = True
-              self.fileError.write(str(self.root)+";"+str(self.id_ARN)+"\n")
+              self.fileError.write("i >= len(ncm_by_nt_d_Dict_so,"+str(self.root)+";"+str(self.id_ARN)+"\n")
               return nTs
             ncm_by_nt_d_Dict["so_u"][i] = [ncm_by_nt_d_Dict["so"][i][0]]
             ncm_by_nt_d_Dict["mcff_u"][i] = [ncm_by_nt_d_Dict["mcff"][i][0]]
@@ -1120,35 +1120,39 @@ class RNASS:
       
       # Donne la couleur du contour des MCN et cacul le score de prediction
       def getPredColorweigth(self,ncm,i,soft):
-        actualLevel = self.reactivityVector[i]
-        scoh = 0
-        color = "black"
-        if(actualLevel == "Bg"):
-          color = "grey"
+        if(len(self.reactivityVector) > i):
+            actualLevel = self.reactivityVector[i]
+            scoh = 0
+            color = "black"
+            if(actualLevel == "Bg"):
+              color = "grey"
+            else:
+              #print("ncm : "+ ncm)
+              cursor = self.db[self.collectionName].find({"ncm":ncm,"soft":soft})
+              isNcmpresent = False
+              for d in cursor:
+                isNcmpresent = True
+                low = d["low"]
+                #print("low : "+ str(low))
+                hi = d["hi"]
+                #print("hi : "+ str(hi))
+                bg = d["bg"]
+                #print("bg : "+ str(bg)+"\n")
+              if(isNcmpresent):
+                (pred,poids) = self.getPrediction(low,bg,hi)
+                color = self.colorTranlation(pred)
+              else :
+                color = "green"
+
+            if(color == "red" and actualLevel == "Low" or color == "blue" and actualLevel == "Hi"):
+              scoh = 1 * poids
+            if(color == "blue" and actualLevel == "Low" or color == "red" and actualLevel == "Hi"):
+              scoh = -1 * poids
+
+            return (color,scoh)
         else:
-          #print("ncm : "+ ncm)
-          cursor = self.db[self.collectionName].find({"ncm":ncm,"soft":soft})
-          isNcmpresent = False
-          for d in cursor:
-            isNcmpresent = True
-            low = d["low"]
-            #print("low : "+ str(low))
-            hi = d["hi"]
-            #print("hi : "+ str(hi))
-            bg = d["bg"]
-            #print("bg : "+ str(bg)+"\n")
-          if(isNcmpresent):
-            (pred,poids) = self.getPrediction(low,bg,hi)
-            color = self.colorTranlation(pred)
-          else :
-            color = "green"
-          
-        if(color == "red" and actualLevel == "Low" or color == "blue" and actualLevel == "Hi"):
-          scoh = 1 * poids
-        if(color == "blue" and actualLevel == "Low" or color == "red" and actualLevel == "Hi"):
-          scoh = -1 * poids
-          
-        return (color,scoh)
+            self.fileError.write("reactivityVector too small,"+str(self.root)+";"+str(self.id_ARN)+"\n")
+            return ("yellow", 0)
       
       
       def getPB(self,paireBaseTab):
