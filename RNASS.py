@@ -969,7 +969,7 @@ class RNASS:
             if(firstTab[nt_i] != ncmSStab[ss_i][nt_i]["merge"]):
               missmatchTab[nt_i] +=1
               if(missmatchTab[nt_i] > 0):
-                print("ncmSStab[ss_i][nt_i]['merge'] : "+ ncmSStab[ss_i][nt_i]["merge"] +" != "+firstTab[nt_i])
+                #print("ncmSStab[ss_i][nt_i]['merge'] : "+ ncmSStab[ss_i][nt_i]["merge"] +" != "+firstTab[nt_i])
                 returnTab[nt_i] = 0
         #print("returnTab : "+",".join(str(x) for x in returnTab))
         return returnTab
