@@ -848,6 +848,7 @@ class RNASS:
                           rsoSplited = rnaSuboptTab[i].split()
                           if (not is_number(rsoSplited[1]) and float(rsoSplited[1]) == 0):
                                   #print("breakOn : "+rsoSplited[0])
+                                  self.error = True
                                   self.fileError.write(str(self.root)+";"+str(self.id_ARN)+"\n")
                                   break
                           sE = StructEnergy(rsoSplited[0],self.seq,float(rsoSplited[1]),"-",i)
@@ -1151,6 +1152,7 @@ class RNASS:
 
             return (color,scoh)
         else:
+            self.error = True
             self.fileError.write("reactivityVector too small,"+str(self.root)+";"+str(self.id_ARN)+"\n")
             return ("yellow", 0)
       

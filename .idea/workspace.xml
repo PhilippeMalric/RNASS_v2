@@ -17,8 +17,8 @@
       <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
+            <state relative-caret-position="279">
+              <caret line="298" column="39" selection-start-line="298" selection-start-column="39" selection-end-line="298" selection-end-column="39" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -56,8 +56,8 @@
       <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNASS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="387" column="64" lean-forward="true" selection-start-line="387" selection-start-column="64" selection-end-line="387" selection-end-column="64" />
+            <state relative-caret-position="1221">
+              <caret line="1161" column="44" lean-forward="true" selection-start-line="1161" selection-start-column="44" selection-end-line="1161" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -81,13 +81,15 @@
       <find>cut</find>
       <find>mcffTreshold</find>
       <find>nonp</find>
-      <find>pub</find>
       <find>ncmss</find>
       <find>isEachNt_AllNcmthesameVector</find>
       <find>isENANtsV</find>
       <find>getPredColorweigth</find>
       <find>reactivityVector</find>
       <find>fileError.write</find>
+      <find>pub</find>
+      <find>self.error</find>
+      <find>fileEr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,15 +208,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNASS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="387" column="64" lean-forward="true" selection-start-line="387" selection-start-column="64" selection-end-line="387" selection-end-column="64" />
+        <state relative-caret-position="1221">
+          <caret line="1161" column="44" lean-forward="true" selection-start-line="1161" selection-start-column="44" selection-end-line="1161" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
+        <state relative-caret-position="279">
+          <caret line="298" column="39" selection-start-line="298" selection-start-column="39" selection-end-line="298" selection-end-column="39" />
           <folding>
             <element signature="e#46#63#0" expanded="true" />
           </folding>

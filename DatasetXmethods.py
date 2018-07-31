@@ -296,7 +296,7 @@ if(True):
                         #print("stn : "+str(rnaOld["stn"]))
                         linesParsed.append(oneLineParsed)
                         counter += 1
-                        if(counter > 1000):
+                        if(counter > 10):
                           print("break")
                           break
                     else:
