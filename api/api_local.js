@@ -138,8 +138,9 @@ app.get("/ncm_stat/collection=:collection/soft=:soft/minimum=:min", function (re
 
 app.get("/rna/collection=:collection/exp=:exp/id=:id", function (req, res) {
   //console.log("id :" + req.params.id)
-
-  db.collection(req.params.collection).find({rna_id:req.params.id,"info.root":eq.params.exp})
+  id = Number(req.params.id)
+  exp = req.params.exp
+  db.collection(req.params.collection).aggregate([{$match:{$and:[{rna_id:id},{"info.root":exp}]}}])
     .toArray(function (err, docs) {
       if (err) {
         handleError(res, err.message, "Failed to get contacts.");
