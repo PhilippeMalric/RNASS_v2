@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /u/malricp/RNASS_v2
 echo "score"
 echo $(cat ./score_vecteur.txt);
 echo "stn"
@@ -6,35 +7,31 @@ echo $(cat ./stn_vecteur.txt);
 echo "ed"
 echo $(cat ./ed_vecteur.txt);
 
-for filter in $(cat ./ETERNA.txt);
+for score in $(cat ./score_vecteur.txt);
 do
-    for score in $(cat ./score_vecteur.txt);
+  for stn in $(cat ./stn_vecteur.txt);
+  do
+    for ed_ in $(cat ./ed_vecteur.txt);
     do
-      for stn in $(cat ./stn_vecteur.txt);
+      pwd=`pwd`
+      echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/RNASS_v2/launcher_dataSet.bh"
+      qsubNum=`qsub  -o qsub_out -e qsub_er -v "ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score" -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/RNASS_v2/launcher_dataSet.bh | cut -d. -f1 `
+      #sleep 1s
+      echo "qsubNum : "$qsubNum
+
+      running=`qstat | grep malricp | grep -v ' C ' | wc -l`
+      echo "running = "$running
+
+      while [ $running -gt 20 ]
       do
-        for ed_ in $(cat ./ed_vecteur.txt);
-        do
-          pwd=`pwd`
-          echo "qsub  -o qsub_out -e qsub_er -v ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/RNASS_v2/launcher_dataSet.bh"
-          qsubNum=`qsub  -o qsub_out -e qsub_er -v "ed_seuil=$ed_,stn_seuil=$stn,score_seuil=$score,filtre=$filtre" -l nodes=1:ppn=8,mem=1gb,walltime=24:00:00 /u/malricp/RNASS_v2/launcher_dataSet.bh | cut -d. -f1 `
-          #sleep 1s
-          echo "qsubNum : "$qsubNum
-
-          running=`qstat | grep malricp | grep -v ' C ' | wc -l`
-          echo "running = "$running
-
-          while [ $running -gt 20 ]
-          do
-            echo "waiting 10s"
-            sleep 10s
-            running=`qstat | grep malricp | grep -v ' C ' | wc -l`
-            echo "running : "$running
-          done
-          #break
-        done
-        #break
+        echo "waiting 10s"
+        sleep 10s
+        running=`qstat | grep malricp | grep -v ' C ' | wc -l`
+        echo "running : "$running
       done
       #break
     done
     #break
+  done
+  #break
 done
