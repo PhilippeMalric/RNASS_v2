@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185d0fb8-70a5-49a6-bdba-f4e54a40bdb8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/RNASS_v2/DataXMethods_only_stat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatasetXmethods.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatasetXmethods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RNASS.py" beforeDir="false" afterPath="$PROJECT_DIR$/RNASS.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatasetXmethods.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="474" column="28" selection-start-line="474" selection-start-column="28" selection-end-line="474" selection-end-column="28" />
+            <state relative-caret-position="51">
+              <caret line="235" column="10" selection-start-line="235" selection-start-column="10" selection-end-line="235" selection-end-column="10" />
+              <folding>
+                <element signature="e#46#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataXMethods_only_stat.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RNASS_v2/DataXMethods_only_stat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="475" lean-forward="true" selection-start-line="475" selection-end-line="475" />
               <folding>
                 <element signature="e#46#63#0" expanded="true" />
               </folding>
@@ -56,8 +68,8 @@
       <file leaf-file-name="RNASS.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RNASS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+            <state relative-caret-position="8324">
+              <caret line="981" column="45" lean-forward="true" selection-start-line="981" selection-start-column="45" selection-end-line="981" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -91,8 +103,10 @@
       <find>fileEr</find>
       <find>pub</find>
       <find>floa</find>
-      <find>TEXT</find>
       <find>fileError</find>
+      <find>pbToNcmAll</find>
+      <find>pbToNcm</find>
+      <find>TEXT</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,8 +117,9 @@
       <list>
         <option value="$PROJECT_DIR$/launcher_dataSet.bh" />
         <option value="$PROJECT_DIR$/starter_by_ed_stn_score.bh" />
-        <option value="$PROJECT_DIR$/DatasetXmethods.py" />
         <option value="$PROJECT_DIR$/RNASS.py" />
+        <option value="$PROJECT_DIR$/DatasetXmethods.py" />
+        <option value="$PROJECT_DIR$/RNASS_v2/DataXMethods_only_stat.py" />
       </list>
     </option>
   </component>
@@ -125,6 +140,11 @@
           <expand>
             <path>
               <item name="RNASS_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RNASS_v2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RNASS_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RNASS_v2" type="462c0819:PsiDirectoryNode" />
               <item name="RNASS_v2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -211,15 +231,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RNASS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+        <state relative-caret-position="8324">
+          <caret line="981" column="45" lean-forward="true" selection-start-line="981" selection-start-column="45" selection-end-line="981" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DatasetXmethods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="474" column="28" selection-start-line="474" selection-start-column="28" selection-end-line="474" selection-end-column="28" />
+        <state relative-caret-position="51">
+          <caret line="235" column="10" selection-start-line="235" selection-start-column="10" selection-end-line="235" selection-end-column="10" />
+          <folding>
+            <element signature="e#46#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RNASS_v2/DataXMethods_only_stat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="475" lean-forward="true" selection-start-line="475" selection-end-line="475" />
           <folding>
             <element signature="e#46#63#0" expanded="true" />
           </folding>

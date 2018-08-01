@@ -160,14 +160,14 @@ else:
 if(len(args) > 4):
     collectionName = args[4]
 else:
-    collectionName = "re_filter_Filter_0_90_noPred__A_0_5_S_1_0_stn_1_0_ed_2_0_stat"
+    collectionName = "test_1__Filter__All_w_up__noPred__A_0_5_S_1_0_stn_1_0_ed_1_0_stat"
 
 
-prediction = False
+prediction = True
 
 
-
-keyWord = "test_1_"
+#---------------------------------------------------KeyWord
+keyWord = "Pred_All_"
 
 dbName = "rdv"
 
@@ -233,7 +233,7 @@ if(True):
           exp_num = 0
       else:
           exp_num = int(reF_search.group(1))
-      if (exp_num > 0 and exp_num < 90):
+      if ( exp_num >= 90):
       #if ("ETERNA_R00_0002.rdat" == file):
           root = file[:-5]
           if(options.verbose):
