@@ -101,6 +101,19 @@ app.get("/ncm_stat/collection=:collection/soft=:soft/minimum=:min", function (re
 });
 
 
+app.get("/rna/collection=:collection/exp=:exp/id=:id", function (req, res) {
+  //console.log("id :" + req.params.id)
+
+  db.collection(req.params.collection).find({info:{root:req.params.root},rna_id:req.params.id})
+    .toArray(function (err, docs) {
+      if (err) {
+        handleError(res, err.message, "Failed to get contacts.");
+      } else {
+        res.status(200).json(docs);
+      }
+    });
+});
+
 
 
 
