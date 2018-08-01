@@ -38,10 +38,10 @@ app.get("/test", function (req, res) {
 })
 
 
-app.get("/ncm_grouped_Low_std_dev/skip=:skip/limit=:limit/countMin=:cmin/stdDevMax=:stdDevMax", function (req, res) {
+app.get("/ncm_grouped_Low_std_dev/collection=:collections/kip=:skip/limit=:limit/countMin=:cmin/stdDevMax=:stdDevMax", function (req, res) {
   //console.log("id :" + req.params.id)
 
-  db.collection(RNAS_COLLECTION).aggregate([{ $project: { nts: 1 } },
+  db.collection(req.params.collections).aggregate([{ $project: { nts: 1 } },
   { $unwind: { path: "$nts" } },
   { $project: { nts: { $arrayElemAt: ["$nts.ncmTabDG_so", 0] }, score: "$nts.score", rna: "$nts.rna_id",pos: "$nts.position" } },
   { $project: { ncm: "$nts.ncm.merge", score: 1,rna:1,pos:1} },
